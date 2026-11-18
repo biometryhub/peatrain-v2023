@@ -8,11 +8,18 @@ This code is based on the 'Peatear' neural network code developed by Lachlan Mit
 
 ## GPU container
 
-Requires Docker with the NVIDIA Container Toolkit. Build and run:
+Requires Docker with the NVIDIA Container Toolkit.
+
+Build:
 
 ```sh
 docker build -t peatrain-gpu .devcontainer
+```
 
+
+Run:
+
+```sh
 # Check GPU is found
 docker run --rm --gpus=all peatrain-gpu python -c "import torch, tensorflow as tf; print('torch', torch.cuda.is_available()); print('tf', tf.config.list_physical_devices('GPU'))"
 
