@@ -1,0 +1,13 @@
+{
+  "name": "peatrain-gpu",
+  "build": { "dockerfile": "Dockerfile" },
+  "runArgs": ["--gpus=all", "--shm-size=8g"],
+  "hostRequirements": { "gpu": true },
+  "remoteUser": "vscode",
+  "postCreateCommand": "python -c \"import torch, tensorflow as tf; print('torch', torch.__version__, torch.cuda.is_available()); print('tf', tf.__version__, tf.config.list_physical_devices('GPU'))\"",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-toolsai.jupyter"]
+    }
+  }
+}
